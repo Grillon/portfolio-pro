@@ -50,8 +50,8 @@ function createMainHTML(data) {
       
       <div class="relative z-10 container mx-auto px-4 py-12 max-w-6xl">
         ${createHeader(data)}
-        ${createQuickSummaries(data)}
         ${createAboutSection(data)}
+        ${createQuickSummaries(data)}
         ${createCaseStudiesSection(data)}
         ${createTodaySection(data)}
         ${createFooter(data)}
@@ -406,6 +406,14 @@ function createFloatingNavigation() {
             En-tête
           </div>
         </a>
+        <a href="#a-propos" class="nav-item group relative p-2 rounded hover:bg-blue-600/30 transition-colors" data-section="a-propos">
+          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+          </svg>
+          <div class="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-slate-800 text-blue-100 px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            À propos
+          </div>
+        </a>
         
         <a href="#resumes-rapides" class="nav-item group relative p-2 rounded hover:bg-blue-600/30 transition-colors" data-section="resumes-rapides">
           <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -416,14 +424,6 @@ function createFloatingNavigation() {
           </div>
         </a>
         
-        <a href="#a-propos" class="nav-item group relative p-2 rounded hover:bg-blue-600/30 transition-colors" data-section="a-propos">
-          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-          </svg>
-          <div class="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-slate-800 text-blue-100 px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            À propos
-          </div>
-        </a>
         
         <a href="#etudes-de-cas" class="nav-item group relative p-2 rounded hover:bg-blue-600/30 transition-colors" data-section="etudes-de-cas">
           <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

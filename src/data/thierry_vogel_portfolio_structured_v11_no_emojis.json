@@ -1,6 +1,7 @@
 {
   "titre": "Thierry Vogel – Études de cas infrastructure",
   "court_apropos": "Infrastructure, fiabilité et automatisation chez Orange (2009–2023)",
+  "long_apropos": "De 2011 à 2015, j’ai occupé un rôle transverse d’automatisation et de fiabilisation chez Orange, en tant qu’ingénieur systèmes spécialisé HPUX et RHEL.\n\nJ’ai fait partie des premiers membres actifs de la communauté ComDev, où j’ai contribué à structurer des outils d’exploitation inter-équipes/Inter-direction.\n\nMon approche : comprendre les pratiques terrain, les structurer en scripts composites robustes (NSH, KSH, Perl), et les rendre utilisables par des non-spécialistes sans perdre en fiabilité.\n\nCe document présente trois cas concrets où mes scripts ont été intégrés durablement dans des workflows critiques, souvent industrialisés sans bruit. Ce sont des outils qui ont fonctionné parce qu’ils étaient justes, pas parce qu’ils étaient visibles.",
   "resumes_rapides": [
     {
       "titre": "Augmentation de volumétrie (~2011–2014)",
@@ -8,11 +9,11 @@
     },
     {
       "titre": "Pré-check avant reboot (~2011–2014)",
-      "resume": "Audit non intrusif exécuté 2×/jour sur tout le parc. Devenu obligatoire après un incident évitable. Standardisation silencieuse et robuste des bonnes pratiques pré-reboot."
+      "resume": "Audit non intrusif exécuté 2×/jour sur tout le parc plus de 15k serveurs Unix/Linux. Devenu obligatoire après un incident évitable. Standardisation silencieuse et robuste des bonnes pratiques pré-reboot."
     },
     {
-      "titre": "Interopérabilité réseau (~2013–2015)",
-      "resume": "Scripts composites NSH/KSH/Perl pour combler les lacunes entre outils internes. Succès là où des millions avaient été dépensés sans résultat. Intégré dans le SI sans réécriture."
+      "titre": "Ouverture de flux réseau – Vérification automatique sans friction (~2013–2015)",
+      "resume": "Scripts composites pour tester l’ouverture effective des flux sans surcharge pour les équipes réseau.Gain de temps significatif, suppression des allers-retours, intégration fluide dans le SI."
     },
     {
       "titre": "Refonte CI/CD sur TCF (2015–2016)",
@@ -23,19 +24,18 @@
       "resume": "Déploiement et maintien de pipelines différenciés entre environnements. Référence DevOps lors des audits internes."
     },
     {
-      "titre": "Migration vers Cloud Foundry – Orange Connect (2019–2023)",
-      "resume": "Déploiement complet sur Cloud Foundry avec services managés. Coordination multi-équipes et mise en place de CI/CD."
+      "titre": "Déploiement initial Cloud Foundry – Orange Connect (2019–2023)",
+      "resume": "Déploiement complet sur Cloud Foundry avec services managés. Coordination multi-équipes agile@Scale et mise en place de CI/CD."
     },
     {
-      "titre": "Unification CI/CD sur KDO & Orange Reprise – Phase 2 (2021–2023)",
-      "resume": "Unification et migration des chaînes CI/CD vers GitLab CI sur Cloud Foundry. Approche industrialisée et durable."
+      "titre": "Migration cloud vers Cloud Foundry - KDO & Orange Reprise – Phase 2 (2021–2023)",
+      "resume": "Migration Cloud Applicatif et CI/CD de git/jenkins/ansible sur VMs vers GitLab CI sur Cloud Foundry. Approche industrialisée et durable."
     },
     {
       "titre": "Exploration entrepreneuriale Web3 (2023–2025)",
       "resume": "Relance personnelle et repositionnement comme Architecte Fiabilité, avec projets open source (WallEx, EasyLandingWeb), rôle bizdev (Thugz), hackathons, événements crypto et engagement Web3 (MonkeDAO, Akash)."
     }
   ],
-  "long_apropos": "Entre 2011 et 2015, j’ai occupé un rôle transverse d’automatisation et de fiabilisation chez Orange, en tant qu’ingénieur systèmes spécialisé HPUX et RHEL.\n\nJ’ai fait partie des premiers membres actifs de la communauté ComDev, où j’ai contribué à structurer des outils d’exploitation inter-équipes.\n\nMon approche : comprendre les pratiques terrain, les structurer en scripts composites robustes (NSH, KSH, Perl), et les rendre utilisables par des non-spécialistes sans perdre en fiabilité.\n\nCe document présente trois cas concrets où mes scripts ont été intégrés durablement dans des workflows critiques, souvent industrialisés sans bruit. Ce sont des outils qui ont fonctionné parce qu’ils étaient justes, pas parce qu’ils étaient visibles.",
   "etudes_de_cas": [
     {
       "titre": "Augmentation de volumétrie (2011–2014)",
@@ -97,28 +97,31 @@
       "remarque": ""
     },
     {
-      "titre": "Automatisation interopérabilité réseau – Scripts composites",
-      "contexte": "Contexte : Vers 2013–2014, Orange utilisait plusieurs outils internes pour la gestion du réseau TCP/IP. Ces outils, développés à différentes époques par différentes équipes, n’étaient pas interopérables. Chaque nouvelle demande réseau nécessitait des manipulations manuelles, des tests séparés, des reformatages, et impliquait de nombreux allers-retours.\n\nDes solutions logicielles sur-étagère avaient été essayées sans succès, malgré des investissements lourds. Le SI était trop hétérogène pour qu’une solution standard s’y adapte simplement.\n\nMon script, développé avec une approche artisanale mais rigoureuse, a fini par répondre aux attentes là où des outils coûteux avaient échoué.",
-      "declencheur": "",
-      "probleme": "",
-      "objectif": "- recevoir des données en entrée selon un format réseau strict,\n- déclencher des tests réseau automatisés,\n- transformer les résultats dans un format exploitable par d’autres outils,\n- transmettre les données à l’étape suivante du processus.",
-      "action": [
-        "Je travaillais en collaboration avec les admins réseau, sur la base de retours fonctionnels. Je n’avais pas accès au SI final ni à la chaîne complète, mais mes livraisons étaient ajustées par itérations selon leurs retours."
-      ],
-      "deploiement": [
-        "les scripts avaient été intégrés dans leur SI (modalité exacte inconnue),",
-        "ils avaient permis de réduire les échecs de livraison réseau,",
-        "et de fiabiliser un maillon critique de la chaîne de configuration."
-      ],
-      "impacts": [
-        "Réduction des erreurs dans les demandes réseau",
-        "Automatisation de tâches auparavant manuelles",
-        "Amélioration de la fluidité dans la chaîne de livraison réseau",
-        "Intégration dans les workflows, même hors de mon périmètre",
-        "Scripts composites signés et utilisés sans refactorisation lourde"
-      ],
-      "remarque": ""
-    },
+    "titre": "Vérification automatique des ouvertures de flux réseau – Scripts composites (2013–2015)",
+    "contexte": "Chez Orange, les demandes d’ouverture de flux réseau passaient par un outil interne dédié. Mais les vérifications techniques — tests de connectivité, validation de l’ouverture effective — ne pouvaient pas être effectuées directement par les équipes en charge de la demande. Cela entraînait des dépendances inter-équipes, des allers-retours fréquents en cas d’erreur ou de blocage invisible, et une surcharge pour les équipes réseau.",
+    "objectif": "Concevoir un outil complémentaire, capable d’effectuer automatiquement les vérifications post-ouverture, sans alourdir le travail des admins réseau, ni modifier les outils existants.",
+    "action": [
+        "Collaboration avec une ingénieure réseau référente et soutien de la direction de l’époque.",
+        "Scripts composites (NSH, KSH, Perl) : récupération automatique des données (plages IP, ports, protocoles).",
+        "Exécution des tests réseau depuis les bons points techniques, détection d’effets de bord.",
+        "Génération d’un rapport clair et directement exploitable, sans retraitement manuel.",
+        "Architecture modulaire pensée pour s’intégrer sans friction aux pratiques existantes."
+    ],
+    "deploiement": [
+        "Utilisé en complément du processus existant d’ouverture de flux réseau.",
+        "Validation technique automatique des ouvertures, détection précoce d’anomalies.",
+        "Amélioration de la fluidité sans intervention manuelle supplémentaire."
+    ],
+    "impacts": [
+        "Suppression des allers-retours inutiles entre équipes.",
+        "Diminution des délais de traitement (jusqu’à plusieurs jours gagnés).",
+        "Zéro surcharge pour les admins réseau.",
+        "Intégration fluide dans un SI hétérogène.",
+        "Outil maintenu en production sans refonte ni supervision active."
+    ],
+    "remarque": "Ce projet illustre la puissance d’un chaînage simple mais bien pensé, dans un environnement contraint. Il a comblé un manque réel, apporté de la fluidité… et prouvé qu’une bonne collaboration technique pouvait résoudre un point de friction longtemps ignoré."
+}
+,
     {
       "titre": "Refonte CI/CD sur TCF (2015–2016)",
       "contexte": "Une API de consolidation de référentiels nécessitait une chaîne d’intégration continue fiable et structurée.",
@@ -163,7 +166,7 @@
       "remarque": "J’ai été à la fois concepteur, opérateur et garant du bon fonctionnement dans la durée."
     },
     {
-      "titre": "Migration vers Cloud Foundry – Orange Connect (2019–2023)",
+      "titre": "Premier déploiement vers Cloud Foundry – Orange Connect (2019–2023)",
       "contexte": "Un projet de gestion d'identité multi-équipes nécessitait un déploiement cloud sécurisé et modulaire.",
       "objectif": "Déployer l’application sur Cloud Foundry avec tous les services managés associés.",
       "action": [
@@ -184,8 +187,8 @@
       "remarque": "Première expérience structurante sur Cloud Foundry, répliquée ensuite sur d’autres projets."
     },
     {
-      "titre": "Unification CI/CD sur KDO & Orange Reprise – Phase 2 (2021–2023)",
-      "contexte": "Suite à la migration réussie d’Orange Connect, KDO et Orange Reprise ont migré à leur tour vers Cloud Foundry.",
+      "titre": "Migration vers Cloud Foundry et unification CI/CD sur KDO & Orange Reprise – Phase 2 (2021–2023)",
+      "contexte": "Suite au déploiement réussi d’Orange Connect, KDO et Orange Reprise ont été migré vers Cloud Foundry.",
       "objectif": "Unifier les pipelines CI/CD pour fiabiliser les déploiements sur la plateforme cloud.",
       "action": [
         "Migration de Jenkins/Ansible vers GitLab CI",
@@ -201,7 +204,7 @@
         "Industrialisation des bonnes pratiques cloud",
         "Autonomie accrue des équipes techniques"
       ],
-      "remarque": "Cette phase a tiré profit des succès précédents pour aboutir à une solution durable et cohérente."
+      "remarque": "Nous avons consolidé les enseignements d’Orange Connect pour concevoir une solution durable sur KDO/Orange Reprise."
     },
     {
       "titre": "Exploration entrepreneuriale et engagement Web3 (2023–2025)",
