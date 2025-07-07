@@ -386,5 +386,132 @@ function createFooter(data) {
 // Initialisation de la page
 document.addEventListener('DOMContentLoaded', function() {
   const app = document.getElementById('app');
-  app.innerHTML = createMainHTML(portfolioData);
+  app.innerHTML = createMainHTML(portfolioData) + createFloatingNavigation();
+  
+  // Initialiser la navigation flottante
+  initFloatingNavigation();
 });
+
+// Fonction pour créer la navigation flottante
+function createFloatingNavigation() {
+  return `
+    <nav id="floating-nav" class="fixed right-4 top-1/2 transform -translate-y-1/2 z-50 bg-slate-900/90 backdrop-blur-sm border-2 border-blue-400/60 rounded-lg p-2 shadow-lg">
+      <div class="flex flex-col gap-2">
+        <a href="#header" class="nav-item group relative p-2 rounded hover:bg-blue-600/30 transition-colors" data-section="header">
+          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v6H8V5z"></path>
+          </svg>
+          <div class="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-slate-800 text-blue-100 px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            En-tête
+          </div>
+        </a>
+        
+        <a href="#resumes-rapides" class="nav-item group relative p-2 rounded hover:bg-blue-600/30 transition-colors" data-section="resumes-rapides">
+          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+          </svg>
+          <div class="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-slate-800 text-blue-100 px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Résumés rapides
+          </div>
+        </a>
+        
+        <a href="#a-propos" class="nav-item group relative p-2 rounded hover:bg-blue-600/30 transition-colors" data-section="a-propos">
+          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+          </svg>
+          <div class="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-slate-800 text-blue-100 px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            À propos
+          </div>
+        </a>
+        
+        <a href="#etudes-de-cas" class="nav-item group relative p-2 rounded hover:bg-blue-600/30 transition-colors" data-section="etudes-de-cas">
+          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <div class="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-slate-800 text-blue-100 px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Études de cas
+          </div>
+        </a>
+        
+        <a href="#aujourdhui" class="nav-item group relative p-2 rounded hover:bg-blue-600/30 transition-colors" data-section="aujourdhui">
+          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <div class="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-slate-800 text-blue-100 px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Aujourd'hui
+          </div>
+        </a>
+        
+        <a href="#footer" class="nav-item group relative p-2 rounded hover:bg-blue-600/30 transition-colors" data-section="footer">
+          <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+          <div class="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-slate-800 text-blue-100 px-2 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Pied de page
+          </div>
+        </a>
+      </div>
+    </nav>
+  `;
+}
+
+// Fonction pour initialiser la navigation flottante
+function initFloatingNavigation() {
+  const navItems = document.querySelectorAll('.nav-item');
+  const sections = ['header', 'resumes-rapides', 'a-propos', 'etudes-de-cas', 'aujourdhui', 'footer'];
+  
+  // Fonction pour mettre à jour l'état actif de la navigation
+  function updateActiveNav() {
+    const scrollPosition = window.scrollY + 100; // Offset pour la détection
+    
+    let currentSection = 'header';
+    
+    sections.forEach(sectionId => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const elementTop = element.offsetTop;
+        const elementBottom = elementTop + element.offsetHeight;
+        
+        if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+          currentSection = sectionId;
+        }
+      }
+    });
+    
+    // Mettre à jour les classes actives
+    navItems.forEach(item => {
+      const section = item.getAttribute('data-section');
+      if (section === currentSection) {
+        item.classList.add('bg-blue-600/50', 'border', 'border-blue-400/60');
+        item.classList.remove('hover:bg-blue-600/30');
+      } else {
+        item.classList.remove('bg-blue-600/50', 'border', 'border-blue-400/60');
+        item.classList.add('hover:bg-blue-600/30');
+      }
+    });
+  }
+  
+  // Écouter le scroll pour mettre à jour la navigation
+  window.addEventListener('scroll', updateActiveNav);
+  
+  // Initialiser l'état actif
+  updateActiveNav();
+  
+  // Ajouter un comportement de scroll fluide pour les liens
+  navItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        const offsetTop = targetElement.offsetTop - 80; // Offset pour le header fixe
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+}
