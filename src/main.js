@@ -1,5 +1,5 @@
 // Import du fichier JSON
-import portfolioData from './data/thierry_vogel_portfolio_structured_v11_no_emojis.json';
+import portfolioData from './data/thierry_vogel_portfolio.json';
 
 // Fonction pour obtenir l'icône appropriée selon le titre du projet
 function getIconForProject(titre) {

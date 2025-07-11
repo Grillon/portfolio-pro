@@ -1,0 +1,227 @@
+{
+  "version": "v0.12.2",
+  "titre": "Thierry Vogel – Études de cas infrastructure",
+  "court_apropos": "Architecte Système orienté infrastructure, fiabilité et automatisation chez Orange (2009–2023), aujourd’hui indépendant.",
+  "long_apropos": "De 2011 à 2015, j’ai occupé un rôle transverse d’automatisation et de fiabilisation chez Orange, en tant qu’ingénieur systèmes spécialisé HPUX et RHEL. Je m’appuyais sur BladeLogic pour créer des workflows agnostiques, robustes et maintenables.\n\nJ’ai contribué à la communauté ComDev, en structurant des outils d’exploitation inter-équipes avec des scripts composites (NSH, KSH, Perl) produisant des rapports HTML/CSV utilisables par des non-spécialistes.\n\nÀ partir de 2015, j’ai consolidé mon expertise DevOps avec la mise en place de pipelines CI/CD (Git, Jenkins, GitLab CI, Ansible) et le déploiement d’applications sur Cloud Foundry.\n\nDepuis 2023, j’explore les usages concrets du Web3 et de l’IA, à travers des projets open source comme WallEx et EasyLandingWeb.\n\nEn tant qu’Architecte Système, je conçois des solutions robustes pour le cloud, l’IA, l’infrastructure et les workflows critiques, avec une capacité à comprendre les architectures logicielles et matérielles.\n\nCe document commence par la présentation de trois cas concrets (2011–2015) où mes scripts BladeLogic ont transformé des processus critiques, prouvant leur efficacité par leur simplicité et leur fiabilité.",
+  "resumes_rapides": [
+    {
+      "titre": "Augmentation de volumétrie (~2011–2014)",
+      "resume": "Script BladeLogic pour HPUX/Linux, initialement jugé “inutile”. Clé pour migrer 15 000 serveurs via un workflow agnostic avec rapports HTML/CSV. Impact : 80 % de réduction du temps, 95 % des tickets éliminés."
+    },
+    {
+      "titre": "Pré-check avant reboot (~2011–2014)",
+      "resume": "Audit automatisé via BladeLogic, 2x/jour sur 15 000+ serveurs Unix/Linux. Workflow agnostic avec rapports HTML/CSV. Devenu obligatoire après un incident évitable. Impact : 90 % de réduction des incidents."
+    },
+    {
+      "titre": "Ouverture de flux réseau – Vérification automatique (~2013–2015)",
+      "resume": "Scripts composites BladeLogic pour tester les flux réseau via un workflow agnostic avec rapports HTML/CSV. Impact : 90 % des allers-retours supprimés, 3 à 5 jours gagnés par flux."
+    },
+    {
+      "titre": "Refonte CI/CD sur TCF (2015–2016)",
+      "resume": "Refonte complète de la chaîne CI/CD pour une API stratégique : Git, Maven, Jenkins, Ansible. Première mise en œuvre complète de mes compétences DevOps."
+    },
+    {
+      "titre": "Pipelines CI/CD sur KDO & Orange Reprise – Phase 1 (2016–2019)",
+      "resume": "Déploiement et maintien de pipelines différenciés entre environnements. Référence DevOps lors des audits internes."
+    },
+    {
+      "titre": "Déploiement initial Cloud Foundry – Orange Connect (2019–2023)",
+      "resume": "Déploiement complet sur Cloud Foundry avec services managés. Coordination multi-équipes agile@Scale et mise en place de CI/CD."
+    },
+    {
+      "titre": "Migration cloud vers Cloud Foundry - KDO & Orange Reprise – Phase 2 (2021–2023)",
+      "resume": "Migration Cloud Applicatif et CI/CD de git/jenkins/ansible sur VMs vers GitLab CI sur Cloud Foundry. Approche industrialisée et durable."
+    },
+    {
+      "titre": "Exploration entrepreneuriale Web3 (2023–2025)",
+      "resume": "Relance personnelle et repositionnement comme Architecte Système, avec projets open source (WallEx, EasyLandingWeb), rôle bizdev (Thugz), hackathons, événements crypto et engagement Web3 (MonkeDAO, Akash)."
+    }
+  ],
+  "etudes_de_cas": [
+    {
+      "titre": "Augmentation de volumétrie (2011–2014)",
+      "contexte": "J’ai créé un script pour augmenter rapidement la volumétrie disque sur des serveurs HPUX et RHEL, dans un contexte où les processus manuels étaient lents et sujets à erreurs.",
+      "declencheur": "Une demande pour 50 serveurs a révélé un projet de migration massive de 15 000 machines multi-OS (HPUX, RHEL, AIX, Solaris, SunOS).",
+      "probleme": "Les augmentations manuelles prenaient 10 minutes par serveur, rendant la migration à grande échelle ingérable sans automatisation.",
+      "objectif": "Automatiser l’augmentation de volumétrie pour réduire le temps, éliminer les erreurs et permettre une exécution transverse sur des OS hétérogènes.",
+      "action": [
+        "Généralisation du script pour supporter HPUX, RHEL, AIX, Solaris, SunOS via BladeLogic.",
+        "Ajout de détection automatique de l’OS et de la version.",
+        "Adaptation aux erreurs spécifiques avec logging structuré (HTML/CSV).",
+        "Collaboration avec les admins AIX/Solaris pour valider la compatibilité."
+      ],
+      "deploiement": [
+        "Intégration dans un workflow BladeLogic agnostic : détection des tickets, exécution planifiée, rapports HTML/CSV, clôture automatique.",
+        "Lancement massif sans distinction de projet, compatible avec les machines non concernées (ex. Windows).",
+        "Supervision simplifiée : le chef de projet non-tech gérait sans intervention technique."
+      ],
+      "impacts": [
+        "Migration réalisée en 3 mois au lieu de 12 mois estimés.",
+        "Réduction de 80 % du temps de traitement et élimination de 95 % des tickets manuels.",
+        "Zéro incident sur 15 000 serveurs.",
+        "Outil adopté comme standard pour d’autres projets."
+      ],
+      "remarque": "Un besoin personnel a donné naissance à une solution transverse, intégrée via BladeLogic, prouvant la valeur d’une automatisation robuste."
+    },
+    {
+      "titre": "Pré-check avant reboot (2011–2014)",
+      "contexte": "Les redémarrages de serveurs critiques pour la maintenance (MCO) chez Orange manquaient de vérifications standardisées, augmentant le risque d’incidents.",
+      "declencheur": "Un incident évitable a révélé le besoin d’un audit automatisé avant reboot sur 15 000+ serveurs Unix/Linux.",
+      "probleme": "L’absence de procédure unifiée causait des erreurs humaines et des interruptions évitables.",
+      "objectif": "Créer un script non intrusif pour auditer automatiquement l’état des serveurs avant reboot, standardisant les pratiques via un workflow agnostic.",
+      "action": [
+        "Conception d’un script KSH/Perl pour auditer CPU, mémoire, disques et processus critiques.",
+        "Intégration via BladeLogic pour une exécution multi-OS.",
+        "Ajout de rapports HTML/CSV pour un suivi clair.",
+        "Validation avec les équipes Unix pour garantir la compatibilité."
+      ],
+      "deploiement": [
+        "Intégration dans un workflow BladeLogic agnostic : détection des serveurs, exécution 2x/jour, rapports archivés.",
+        "Blocage automatique des reboots en cas d’anomalie détectée.",
+        "Adoption silencieuse comme routine d’exploitation sur tout le parc."
+      ],
+      "impacts": [
+        "Standardisation des vérifications sur 15 000+ serveurs.",
+        "Réduction de 90 % des incidents post-maintenance.",
+        "Outil devenu référence MCO sans incident signalé."
+      ],
+      "remarque": "Conçu pour un usage ponctuel, ce script BladeLogic est devenu une brique essentielle grâce à sa simplicité et sa fiabilité."
+    },
+    {
+      "titre": "Vérification automatique des flux réseau (2013–2015)",
+      "contexte": "Les ouvertures de flux réseau chez Orange nécessitaient des tests manuels, entraînant des allers-retours et des délais entre équipes.",
+      "declencheur": "Les dépendances inter-équipes et les erreurs fréquentes ont motivé la création d’un outil automatisé complémentaire.",
+      "probleme": "Les vérifications manuelles surchargeaient les équipes réseau et ralentissaient les déploiements.",
+      "objectif": "Automatiser les tests de connectivité post-ouverture via un workflow agnostic, sans modifier les outils existants.",
+      "action": [
+        "Conception de scripts composites (NSH, KSH, Perl) via BladeLogic.",
+        "Récupération automatique des données (IP, ports, protocoles).",
+        "Tests réseau depuis les bons points techniques avec rapports HTML/CSV.",
+        "Collaboration avec une ingénieure réseau pour valider l’approche."
+      ],
+      "deploiement": [
+        "Intégration dans un workflow BladeLogic agnostic, complémentaire au processus existant.",
+        "Validation automatique des ouvertures avec détection des anomalies.",
+        "Rapports clairs pour une exploitation sans retraitement manuel."
+      ],
+      "impacts": [
+        "Élimination de 90 % des allers-retours inter-équipes.",
+        "Gain de 3 à 5 jours par ouverture de flux.",
+        "Zéro surcharge pour les admins réseau.",
+        "Outil maintenu en production sans refonte."
+      ],
+      "remarque": "Ce workflow BladeLogic a fluidifié un processus critique, prouvant qu’une automatisation bien pensée peut résoudre des frictions ignorées."
+    },
+    {
+      "titre": "Refonte CI/CD sur TCF (2015–2016)",
+      "contexte": "Une API de consolidation de référentiels nécessitait une chaîne d’intégration continue fiable et structurée.",
+      "objectif": "Moderniser la chaîne de livraison de l’API : passage à Git, standardisation build, automatisation des déploiements.",
+      "action": [
+        "Migration de CVS vers Git avec adoption du modèle GitFlow",
+        "Structuration du build Maven et intégration continue avec Jenkins et Nexus",
+        "Déploiement automatisé via Ansible sur tous les environnements (y compris production)",
+        "Collaboration directe avec la communauté Ansible pendant une période instable"
+      ],
+      "deploiement": [
+        "CI/CD complet mis en place et utilisé en production",
+        "Stabilisation rapide des livraisons grâce aux automatisations",
+        "Autonomie accrue des développeurs"
+      ],
+      "impacts": [
+        "Réduction des erreurs humaines",
+        "Fiabilisation de la livraison de l’API",
+        "Montée en compétence collective sur Git/CI"
+      ],
+      "remarque": "Première mise en pratique complète de mes compétences CI/CD sur un projet métier clé."
+    },
+    {
+      "titre": "Pipelines CI/CD sur KDO & Orange Reprise – Phase 1 (2016–2019)",
+      "contexte": "Deux projets majeurs lancés simultanément nécessitaient une automatisation complète dès le début.",
+      "objectif": "Concevoir des chaînes CI/CD différenciées, adaptées aux équipes et aux environnements.",
+      "action": [
+        "Déploiement initial avec Git, Jenkins, Nexus, Ansible",
+        "Migration progressive vers GitLab CI",
+        "Automatisation des migrations BDD avec mécanisme de rollback sécurisé",
+        "Support de pipelines différenciés entre environnement recette, préprod et production"
+      ],
+      "deploiement": [
+        "Chaînes en place et maintenues en conditions opérationnelles",
+        "Références internes lors des audits DevOps de 2017"
+      ],
+      "impacts": [
+        "Accélération des cycles de livraison",
+        "Réduction des erreurs sur la base de données",
+        "Exemplarité DevOps reconnue en interne"
+      ],
+      "remarque": "J’ai été à la fois concepteur, opérateur et garant du bon fonctionnement dans la durée."
+    },
+    {
+      "titre": "Premier déploiement vers Cloud Foundry – Orange Connect (2019–2023)",
+      "contexte": "Un projet de gestion d'identité multi-équipes nécessitait un déploiement cloud sécurisé et modulaire.",
+      "objectif": "Déployer l’application sur Cloud Foundry avec tous les services managés associés.",
+      "action": [
+        "Configuration des environnements sur Cloud Foundry",
+        "Choix des services managés (PostgreSQL, Vault, S3...)",
+        "Mise en place des pipelines CI/CD adaptés",
+        "Coordination multi-équipes et gestion des accès"
+      ],
+      "deploiement": [
+        "Déploiement réussi de bout en bout",
+        "Capitalisation sur cette expérience pour les migrations suivantes"
+      ],
+      "impacts": [
+        "Fiabilisation du socle Cloud",
+        "Amélioration de la coordination entre équipes",
+        "Déploiement sécurisé avec services managés"
+      ],
+      "remarque": "Première expérience structurante sur Cloud Foundry, répliquée ensuite sur d’autres projets."
+    },
+    {
+      "titre": "Migration vers Cloud Foundry et unification CI/CD sur KDO & Orange Reprise – Phase 2 (2021–2023)",
+      "contexte": "Suite au déploiement réussi d’Orange Connect, KDO et Orange Reprise ont été migrés vers Cloud Foundry.",
+      "objectif": "Unifier les pipelines CI/CD pour fiabiliser les déploiements sur la plateforme cloud.",
+      "action": [
+        "Migration de Jenkins/Ansible vers GitLab CI",
+        "Unification des chaînes CI/CD des deux projets",
+        "Utilisation des services managés Cloud Foundry"
+      ],
+      "deploiement": [
+        "Chaînes CI/CD consolidées et déployées",
+        "Usage standardisé des services cloud internes"
+      ],
+      "impacts": [
+        "Réduction du coût de maintenance",
+        "Industrialisation des bonnes pratiques cloud",
+        "Autonomie accrue des équipes techniques"
+      ],
+      "remarque": "Nous avons consolidé les enseignements d’Orange Connect pour concevoir une solution durable sur KDO/Orange Reprise."
+    },
+    {
+      "titre": "Exploration entrepreneuriale et engagement Web3 / IA (2023–2025)",
+      "contexte": "Après une phase intense dans des environnements critiques, j’ai pris le temps de réorienter mes compétences vers des domaines émergents à fort potentiel d’impact.",
+      "objectif": "Explorer les usages concrets du Web3 et de l'IA, tester des idées de produits utiles et renforcer mon autonomie technique et stratégique.",
+      "action": [
+        "Création de WallEx, un explorateur de wallets crypto multichaînes",
+        "Participation à plusieurs hackathons dont Colosseum x Superteam France",
+        "Rôle de business developer pour Thugz (intégration Web3 dans Unreal Engine)",
+        "Création d’EasyLandingWeb, un générateur intelligent de landing pages statiques",
+        "Veille et participation à l’écosystème Akash Network (cloud décentralisé)",
+        "Engagement communautaire via MonkeDAO",
+        "Participation à de nombreux événements crypto et blockchain en France"
+      ],
+      "deploiement": [
+        "Prototypes fonctionnels (WallEx, EasyLandingWeb) présentés publiquement",
+        "Collaboration avec des équipes internationales (Superteam, Thugz)",
+        "Création d’une présence technique sur GitHub et lors d’événements"
+      ],
+      "impacts": [
+        "Consolidation de compétences en développement produit",
+        "Renforcement du positionnement Web3/entrepreneuriat",
+        "Ouverture à de nouveaux réseaux et opportunités"
+      ],
+      "remarque": "Cette période a permis de relancer ma dynamique personnelle tout en consolidant un nouveau positionnement professionnel : Architecte Système, avec un intérêt prononcé pour les cas d’usage concrets et utiles du Web3 et de L'IA."
+    }
+  ],
+  "et_aujourdhui": "Je me positionne aujourd’hui comme Architecte Système, à l’intersection du cloud, de l’IA, de l’infrastructure, des produits et des workflows critiques. J’apporte des solutions robustes, lisibles et durables, alignées sur les besoins terrain.\n\nDepuis 2015, j’ai consolidé ma pratique DevOps dans des environnements complexes (CI/CD avec Jenkins, GitLab CI, Nexus, SonarQube ; conteneurisation via Docker dès 2017 ; référence Cloud Foundry chez Orange). Entre 2023 et 2025, j’ai exploré le Web3 et l'IA avec des projets open source (WallEx, EasyLandingWeb) et des hackathons. Formé à la conception de processeurs et au prototypage FPGA, et avec une expérience de développement backend (Java/Kotlin), je comprends les architectures logicielles et matérielles, avec un potentiel pour m’adapter à des systèmes bas niveau.\n\nJe recherche des rôles où concevoir et optimiser des systèmes critiques, en cloud, IA ou infrastructure, avec rigueur et autonomie.",
+  "pied_de_page": "Imaginé et conçu par Thierry Vogel. Réalisation assité par ChatGPT, Grok3 et Bolt.New (2025)"
+}
