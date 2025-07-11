@@ -1,5 +1,5 @@
 {
-  "version": "v0.12.2",
+  "version": "v0.12.3",
   "titre": "Thierry Vogel – Études de cas infrastructure",
   "court_apropos": "Architecte Système orienté infrastructure, fiabilité et automatisation chez Orange (2009–2023), aujourd’hui indépendant.",
   "long_apropos": "De 2011 à 2015, j’ai occupé un rôle transverse d’automatisation et de fiabilisation chez Orange, en tant qu’ingénieur systèmes spécialisé HPUX et RHEL. Je m’appuyais sur BladeLogic pour créer des workflows agnostiques, robustes et maintenables.\n\nJ’ai contribué à la communauté ComDev, en structurant des outils d’exploitation inter-équipes avec des scripts composites (NSH, KSH, Perl) produisant des rapports HTML/CSV utilisables par des non-spécialistes.\n\nÀ partir de 2015, j’ai consolidé mon expertise DevOps avec la mise en place de pipelines CI/CD (Git, Jenkins, GitLab CI, Ansible) et le déploiement d’applications sur Cloud Foundry.\n\nDepuis 2023, j’explore les usages concrets du Web3 et de l’IA, à travers des projets open source comme WallEx et EasyLandingWeb.\n\nEn tant qu’Architecte Système, je conçois des solutions robustes pour le cloud, l’IA, l’infrastructure et les workflows critiques, avec une capacité à comprendre les architectures logicielles et matérielles.\n\nCe document commence par la présentation de trois cas concrets (2011–2015) où mes scripts BladeLogic ont transformé des processus critiques, prouvant leur efficacité par leur simplicité et leur fiabilité.",
@@ -33,8 +33,8 @@
       "resume": "Migration Cloud Applicatif et CI/CD de git/jenkins/ansible sur VMs vers GitLab CI sur Cloud Foundry. Approche industrialisée et durable."
     },
     {
-      "titre": "Exploration entrepreneuriale Web3 (2023–2025)",
-      "resume": "Relance personnelle et repositionnement comme Architecte Système, avec projets open source (WallEx, EasyLandingWeb), rôle bizdev (Thugz), hackathons, événements crypto et engagement Web3 (MonkeDAO, Akash)."
+  "titre": "Exploration entrepreneuriale Web3 / IA (2023–2025)",
+  "resume": "Exploration Web3, IA, cloud décentralisé via hackathons/Start-UpThon. Repositionnement Architecte Système, ouvert aux technos actuelles."
     }
   ],
   "etudes_de_cas": [
@@ -198,30 +198,30 @@
     },
     {
       "titre": "Exploration entrepreneuriale et engagement Web3 / IA (2023–2025)",
-      "contexte": "Après une phase intense dans des environnements critiques, j’ai pris le temps de réorienter mes compétences vers des domaines émergents à fort potentiel d’impact.",
-      "objectif": "Explorer les usages concrets du Web3 et de l'IA, tester des idées de produits utiles et renforcer mon autonomie technique et stratégique.",
+      "contexte": "Après une phase intense dans des environnements critiques, j’ai réorienté mes compétences vers des domaines émergents comme le Web3 et l’IA, tout en consolidant mon expertise cloud.",
+      "objectif": "Explorer les usages concrets du Web3, de l’IA et des architectures cloud décentralisées, en concevant des prototypes innovants et en renforçant mon autonomie technique.",
       "action": [
-        "Création de WallEx, un explorateur de wallets crypto multichaînes",
-        "Participation à plusieurs hackathons dont Colosseum x Superteam France",
-        "Rôle de business developer pour Thugz (intégration Web3 dans Unreal Engine)",
-        "Création d’EasyLandingWeb, un générateur intelligent de landing pages statiques",
-        "Veille et participation à l’écosystème Akash Network (cloud décentralisé)",
-        "Engagement communautaire via MonkeDAO",
-        "Participation à de nombreux événements crypto et blockchain en France"
+        "Création de WallEx, un explorateur de wallets crypto multichaînes en Python, utilisant les APIs CoinMarketCap, Blockscout, Zerion et Moralis, avec une IHM interactive basée sur Dash, Plotly et Pandas.",
+        "Participation au hackathon Colosseum x Superteam France en tant que BizDev, avec un prototype de plugin Web3 pour Unreal Engine (Solidity, IPFS), en collaboration avec un partenaire clé.",
+        "Création d’EasyLandingWeb, un générateur intelligent de landing pages statiques avec IA, réalisé dans le cadre du World’s Largest Hackathon (Bolt.New, DevPost), utilisant Bolt.New, un template HTML pour la structure et une interface combinatoire pour maximiser les possibilités tout en restant prévisible, déployé sur easylandingweb.page.",
+        "Test du rôle de provider sur Akash Network, un Kubernetes décentralisé, pour évaluer les architectures cloud distribuées, et exploration de Google Cloud Platform (GCP) pour des PoCs cloud.",
+        "Engagement communautaire via MonkeDAO.",
+        "Participation à de nombreux événements crypto et IA en France."
       ],
       "deploiement": [
-        "Prototypes fonctionnels (WallEx, EasyLandingWeb) présentés publiquement",
-        "Collaboration avec des équipes internationales (Superteam, Thugz)",
-        "Création d’une présence technique sur GitHub et lors d’événements"
+        "Prototypes fonctionnels (WallEx, EasyLandingWeb) présentés publiquement, avec EasyLandingWeb hébergé sur easylandingweb.page.",
+        "Collaboration avec des équipes internationales, notamment Superteam, lors des hackathons (Colosseum, DevPost).",
+        "Création d’une présence technique sur GitHub and lors d’événements."
       ],
       "impacts": [
-        "Consolidation de compétences en développement produit",
-        "Renforcement du positionnement Web3/entrepreneuriat",
-        "Ouverture à de nouveaux réseaux et opportunités"
+        "WallEx développé comme un prototype fonctionnel, présenté pour un grant mais non poursuivi faute de financement.",
+        "EasyLandingWeb conçu pour un client local, déployé on easylandingweb.page pour ma propre landing page, avec un potentiel identifié pour d’autres utilisateurs.",
+        "Validation technique d’Akash Network comme solution Kubernetes décentralisée et exploration de GCP pour des architectures cloud modernes.",
+        "Réseaux élargis via MonkeDAO et hackathons, ouvrant des opportunités internationales."
       ],
-      "remarque": "Cette période a permis de relancer ma dynamique personnelle tout en consolidant un nouveau positionnement professionnel : Architecte Système, avec un intérêt prononcé pour les cas d’usage concrets et utiles du Web3 et de L'IA."
+      "remarque": "Cette période a renforcé mon positionnement comme Architecte Système, avec un focus sur les solutions Web3, IA et cloud décentralisé, s’appuyant sur des technologies comme Python, Dash, APIs blockchain et Kubernetes."
     }
   ],
-  "et_aujourdhui": "Je me positionne aujourd’hui comme Architecte Système, à l’intersection du cloud, de l’IA, de l’infrastructure, des produits et des workflows critiques. J’apporte des solutions robustes, lisibles et durables, alignées sur les besoins terrain.\n\nDepuis 2015, j’ai consolidé ma pratique DevOps dans des environnements complexes (CI/CD avec Jenkins, GitLab CI, Nexus, SonarQube ; conteneurisation via Docker dès 2017 ; référence Cloud Foundry chez Orange). Entre 2023 et 2025, j’ai exploré le Web3 et l'IA avec des projets open source (WallEx, EasyLandingWeb) et des hackathons. Formé à la conception de processeurs et au prototypage FPGA, et avec une expérience de développement backend (Java/Kotlin), je comprends les architectures logicielles et matérielles, avec un potentiel pour m’adapter à des systèmes bas niveau.\n\nJe recherche des rôles où concevoir et optimiser des systèmes critiques, en cloud, IA ou infrastructure, avec rigueur et autonomie.",
-  "pied_de_page": "Imaginé et conçu par Thierry Vogel. Réalisation assité par ChatGPT, Grok3 et Bolt.New (2025)"
+  "et_aujourdhui": "Architecte Système à l’intersection du cloud, de l’IA et des workflows critiques, je conçois des solutions robustes et durables. Fort de 15 ans d’expérience DevOps (CI/CD avec Jenkins, GitLab CI, Docker, Cloud Foundry), j’ai exploré le Web3 et l’IA via des projets open source (WallEx, EasyLandingWeb) et des hackathons, ainsi que des architectures cloud modernes comme Akash Network (Kubernetes décentralisé) et GCP. Formé à la conception de processeurs et au prototypage FPGA, avec une expérience backend (Java/Kotlin), je recherche des rôles pour optimiser des systèmes distribués avec rigueur et automatisation avancée.",
+  "pied_de_page": "Conçu et rédigé par Thierry Vogel, 2025"
 }
